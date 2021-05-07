@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
+import { InputButton } from './components/InputButton';
+import { Header } from './components/Header';
+import { TogglerMode } from './components/TogglerMode';
 import './App.css';
 
 function App() {
+  const submitHandler = (msg: string) => {
+    alert(msg);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header headerJustify="space-between" headerAlign="center" navJustify="space-around"/>
+      <InputButton submitHandler={submitHandler}/>
+      <TogglerMode modes={['first', 'second', 'third']} btnText="change mode"/>
+    </>
   );
 }
 
